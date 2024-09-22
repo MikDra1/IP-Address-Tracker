@@ -1,19 +1,15 @@
-const express = require('express');
-const axios = require('axios');
+import express from 'express';
+import axios from 'axios';
 
 const app = express();
-const PORT = 3000; // Change to whatever port you'd like
+const PORT = 3000;
 
-// Proxy route to handle API requests
 app.get('/proxy/:domain', async (req, res) => {
   const domain = req.params.domain;
-  const apiUrl = `http://ip-api.com/json/${domain}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`;
+  const apiUrl = `https://ip-api.com/json/${domain}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`;
 
   try {
-    // Make a request to the external API (non-HTTPS)
     const response = await axios.get(apiUrl);
-
-    // Send the API response back to the client
     res.json(response.data);
   } catch (error) {
     res.status(500).json({
@@ -24,5 +20,5 @@ app.get('/proxy/:domain', async (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Proxy server running on http://localhost:${PORT}`);
+  console.log(`Proxy server running on https://localhost:${PORT}`);
 });
