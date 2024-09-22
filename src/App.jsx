@@ -12,14 +12,26 @@ function App() {
 
   async function handleFetch() {
     try {
-      if (ipInput.length === 0 || oldInput === ipInput || !ipInput.includes('.')) return;
+      if (
+        ipInput.length === 0 ||
+        oldInput === ipInput ||
+        !ipInput.includes(".")
+      )
+        return;
 
       setIsLoading(true);
       setOldInput(ipInput);
-      const res = await fetch(
-        `http://ip-api.com/json/${ipInput}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`
-      );
+      // const res = await fetch(
+      //   `http://ip-api.com/json/${ipInput}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`
+      // );
+
+      console.log('asdfasdf')
+      const res = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=45017a7c150d4607a8cdf4e0dcf3631c&ip=1.1.1.1`)
+      console.log(res)
+      
       const data = await res.json();
+      
+      console.log(data)
       if (data.status === "fail") return;
       setIpData(data);
     } catch (err) {
