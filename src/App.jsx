@@ -26,6 +26,7 @@ function App() {
       //   `http://ip-api.com/json/${ipInput}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`
       // );
       const data = await getIpInfo(ipInput);
+      console.log('data', data)
 
       // const res = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=45017a7c150d4607a8cdf4e0dcf3631c&ip=1.1.1.1`)
       
