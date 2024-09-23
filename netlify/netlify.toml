@@ -1,0 +1,6 @@
+[build]
+  functions = "netlify/functions"  # Path to your functions directory
+  publish = "dist"  # Path to your build output (if using a build tool like Vite)
+
+[dev]
+  functions = "netlify/functions"  # Same path for local development
