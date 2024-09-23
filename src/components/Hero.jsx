@@ -12,6 +12,11 @@ function Hero({setIpInput, handleFetch, ipInput}) {
         type="text"
         value={ipInput}
         onChange={(e) => setIpInput(e.target.value)}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleFetch();
+          }
+        }}
         placeholder='Search for any IP address or domain'
       />
       <button onClick={handleFetch}>
