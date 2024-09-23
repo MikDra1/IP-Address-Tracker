@@ -3,6 +3,7 @@ import Details from "./components/Details";
 import Map from "./components/Map";
 import Hero from "./components/Hero";
 import Loader from "./components/Loader";
+import { getIpInfo } from './services/ipService';
 
 function App() {
   const [ipInput, setIpInput] = useState("");
@@ -21,13 +22,14 @@ function App() {
 
       setIsLoading(true);
       setOldInput(ipInput);
-      const res = await fetch(
-        `http://ip-api.com/json/${ipInput}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`
-      );
+      // const res = await fetch(
+      //   `http://ip-api.com/json/${ipInput}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,offset,isp,query`
+      // );
+      const data = await getIpInfo(ipInput);
 
       // const res = await fetch(`https://api.ipgeolocation.io/ipgeo?apiKey=45017a7c150d4607a8cdf4e0dcf3631c&ip=1.1.1.1`)
       
-      const data = await res.json();
+      // const data = await res.json();
       
       if (data.status === "fail") return;
       setIpData(data);
