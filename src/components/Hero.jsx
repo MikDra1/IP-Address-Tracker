@@ -2,8 +2,10 @@
 
 import styles from './Hero.module.css'
 
+
 function Hero({setIpInput, handleFetch, ipInput}) {
     return (
+
         <section className={styles.hero}>
             <h1>IP Adress Tracker</h1>
 
@@ -23,6 +25,7 @@ function Hero({setIpInput, handleFetch, ipInput}) {
         <img src="./images/icon-arrow.svg" alt="" />
       </button>
       </div>
+
         </section>
     )
 }
