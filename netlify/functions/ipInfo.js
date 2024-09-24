@@ -21,7 +21,7 @@ exports.handler = async function (event) {
       body: JSON.stringify(data),
     };
   } catch (error) {
-    console.error('Error fetching IP info:', error);
+    console.error("Error fetching IP info:", error);
     return {
       statusCode: 500,
       body: JSON.stringify({ error: "Failed to fetch IP information" }),

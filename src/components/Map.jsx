@@ -2,7 +2,7 @@
 import { MapContainer, Marker, TileLayer, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import styles from "./Map.module.css";
-import markerIconPng from "../../node_modules/leaflet/dist/images/marker-icon.png"
+import markerIconPng from "../../public/images/marker-icon.png"
 import {Icon} from 'leaflet'
 
 
